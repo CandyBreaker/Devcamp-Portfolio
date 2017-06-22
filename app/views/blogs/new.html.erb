@@ -1,15 +1,10 @@
-<h1>Create a new Portfolio Item</h1>
+<h1>Create a new blog</h1>
 
-<%= form_for(@portfolio_item) do |form| %>
+<%= form_for(@blog) do |form| %>
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :blog_title %>
   </div>  
-  
-  <div class="field">
-    <%= form.label :subtitle %>
-    <%= form.text_field :subtitle, id: :blog_title %>
-  </div>
 
   <div class="field">
     <%= form.label :body %>
