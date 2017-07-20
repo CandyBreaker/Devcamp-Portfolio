@@ -1,17 +1,8 @@
-<h1>Create a new blog</h1>
 
-<%= form_for(@blog) do |form| %>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :blog_title %>
-  </div>  
+<div class="col-sm-8 blog-main">
+  <h1>New Blog</h1>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :blog_body %>
-  </div>
+  <%= render 'form', blog: @blog %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <%= link_to 'Back', blogs_path %>
+</div>
