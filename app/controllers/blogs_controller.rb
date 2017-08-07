@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
   layout 'blog'
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
@@ -10,7 +11,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.recent.page(params[:page]).per(5)
   else
     @blogs = Blog.published.recent.page(params[:page]).per(5)
-  end
+    end
     @page_title = "My Blog Posts"
   end
 
@@ -25,6 +26,7 @@ class BlogsController < ApplicationController
     @seo_keywords = @blog.body
   else
     redirect_to blogs_path, notice: "You are not authorized to view this page. Sorry about that. :/"
+  end
   end
 
   # GET /blogs/new
@@ -94,6 +96,10 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :topic_id)
     end
+      
+  def set_sidebar_topics
+    @side_bar_topics = Topic.with_blogs
+  end
 end
