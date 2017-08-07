@@ -4,8 +4,10 @@
       <p>You can find me and what I've been up to at the places listed below.</p>
     </div>
     
+      <%= source_helper("alert alert-info blog-sidebar-source") %>
+    
     <div class="sidebar-module">
-    <h4> Topics</h4>
+    <h4>Topics</h4>
     <% @side_bar_topics.each do |topic| %>
     <p><%= link_to topic.title, topic_path(topic) %></p>
     <% end %>
