@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "gritter";
+@import "font-awesome";
 
 /*
  * Globals
@@ -206,4 +207,26 @@ body {
  
  .app-footer {
    color: white;
+ }
+ 
+ .app-card-container {
+   color: black;
+ }
+ 
+ .app-card-container > .card {
+   padding: 40px;
+ }
+ 
+ .profile-img {
+   outline: 1px solid gray;
+   width: 100%;
+ }
+ 
+ .app-card-container2 {
+   color: black;
+   padding: 40px;
+ }
+ 
+ .class a{
+   color: black;
  }
